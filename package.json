@@ -38,12 +38,16 @@
       {
         "from": "frontend/build",
         "to": "frontend",
-        "filter": ["**/*"]
+        "filter": [
+          "**/*"
+        ]
       },
       {
         "from": "mariadb",
         "to": "mariadb",
-        "filter": ["**/*"]
+        "filter": [
+          "**/*"
+        ]
       },
       {
         "from": "nodejs",
@@ -68,7 +72,7 @@
     }
   },
   "devDependencies": {
-    "electron": "^36.5.0",
+    "electron": "^36.7.1",
     "electron-builder": "^26.0.12"
   }
 }

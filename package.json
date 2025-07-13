@@ -1,0 +1,74 @@
+{
+  "name": "salle-des-jeux",
+  "productName": "Dominosoft",
+  "version": "1.0.0",
+  "description": "Salle des Jeux ",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "build:react": "cd frontend && npm run build",
+    "build": "npm run build:react && electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "keywords": [],
+  "author": {
+    "name": "3lmehdi",
+    "email": "163897646+3lmehdi@users.noreply.github.com"
+  },
+  "license": "MIT",
+  "build": {
+    "appId": "com.3lmehdi.salle-des-jeux",
+    "productName": "Salle des Jeux",
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "!**/node_modules/*/{test,__tests__,tests}/**",
+      "!**/node_modules/*/example*/**",
+      "!**/*.map"
+    ],
+    "extraResources": [
+      {
+        "from": "backend.exe",
+        "to": "backend.exe"
+      },
+      {
+        "from": "frontend/build",
+        "to": "frontend",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "mariadb",
+        "to": "mariadb",
+        "filter": ["**/*"]
+      },
+      {
+        "from": "nodejs",
+        "to": "nodejs"
+      }
+    ],
+    "asarUnpack": [
+      "backend.exe",
+      "frontend/**",
+      "mariadb/**",
+      "nodejs/**"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/logo.ico",
+      "requestedExecutionLevel": "requireAdministrator"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^36.5.0",
+    "electron-builder": "^26.0.12"
+  }
+}
